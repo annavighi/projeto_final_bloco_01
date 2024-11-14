@@ -7,8 +7,8 @@ package ecommerce.repository;
 	// CRUD do Sistema
 	public void procurarPorCodigo(int codigo);
 	public void listarProdutos();
-	public void cadastrar(Produtos tipo);
-	public void atualizar(Produtos tipo);
+	public void cadastrar(Produtos produto);
+	public void atualizar(Produtos produto);
 	public void deletar(int codigo);
 
 	// Métodos de Venda

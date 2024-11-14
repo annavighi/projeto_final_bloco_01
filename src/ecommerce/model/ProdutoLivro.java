@@ -6,4 +6,9 @@ public class ProdutoLivro extends Produtos {
 		super(codigoProduto, tipoProduto, dadosProduto, preco, qtdEstoque);
 	}
 
+	@Override
+	public void visualizar() {
+		System.out.println("Produto Livro: " + getDadosProduto() + ", Código: " + getCodigoProduto() + ", Preço: "
+				+ getPreco() + ", Estoque: " + getQtdEstoque());
+	}
 }
