@@ -45,15 +45,15 @@ public class menu {
 					System.out.println("Digite seu e-mail:\n\n");
 					String email = leia.nextLine();
 					
-					System.out.println("Digite sua senha:\n\n");
-					String senha = leia.nextLine();
 					break;
 				case 2:
 					System.out.println("Informe os dados solicitados:\n\n");
 
 					break;
 				case 3:
-					System.out.println("Informe o seu endereço de e-mail abaixo.\nSe o cadastro for localizado, enviaremos para o seu e-mail um link para criar uma nova senha.\n\n");
+					System.out.println("Informe o seu endereço de e-mail abaixo.\nSe o cadastro for localizado, você receberá em seu e-mail um link\npara criar uma nova senha.\n\n");
+					System.out.println("Digite seu e-mail:\n\n");
+					String frgtemail = leia.nextLine();
 
 					break;
 				case 4:
