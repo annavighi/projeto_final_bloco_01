@@ -1,89 +1,110 @@
 package ecommerce;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import ecommerce.util.Cores;
+import ecommerce.model.Produtos;
+import ecommerce.controller.EcommerceController;
+import ecommerce.model.ProdutoLivro;
+import ecommerce.model.ProdutoPapelaria;
+
 public class menu {
+	
 	public static void main(String[] args) {
+		
+		EcommerceController produtos = new EcommerceController();
 
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
-		
-		
+
 		while (true) {
 
-			
+			System.out.println("                                                     ");
+			System.out.println(Cores.TEXT_PURPLE_BOLD + "                LIVRARIA DA CIDADE	             ");
 			System.out.println("                                                     ");
 			System.out.println("                                                     ");
-			System.out.println("                LIVRARIA DA CIDADE	                ");
+			System.out.println(Cores.TEXT_PURPLE + "            1 - Localizar produto             	     ");
+			System.out.println(Cores.TEXT_PURPLE + "            2 - Cadastrar novo produto                 ");
+			System.out.println(Cores.TEXT_PURPLE + "            3 - Listar produtos          	 ");
+			System.out.println(Cores.TEXT_PURPLE + "            4 - Deletar produto      		 ");
+			System.out.println(Cores.TEXT_PURPLE + "            5 - Sair                       		     ");
 			System.out.println("                                                     ");
 			System.out.println("                                                     ");
-			System.out.println("                                                     ");
-			System.out.println("            1 - Acessar minha conta                          ");
-			System.out.println("            2 - Criar uma nova conta               ");
-			System.out.println("            3 - Esqueci minha senha              ");
-			System.out.println("            4 - Meus pedidos             ");
-			System.out.println("            5 - Carrinho                         ");
-			System.out.println("            6 - Lista de desejo                                ");
-			System.out.println("            7 - Sair                            ");
-			System.out.println("                                                     ");
-			System.out.println("                                                     ");
-			System.out.println("Digite a opção desejada:                          ");
+			System.out.println(Cores.TEXT_PURPLE + "Digite a opção desejada:                    		     ");
 			System.out.println("                                                     ");
 
 			opcao = leia.nextInt();
 
-			if (opcao == 7) {
-				System.out.println("\nA Livraria da Cidade agradece a sua visita!");
+			if (opcao == 5) {
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "\nA Livraria da Cidade agradece a visita!");
 				sobre();
-                 leia.close();
+				leia.close();
 				System.exit(0);
 			}
 
 			switch (opcao) {
-				case 1:
-					System.out.println("Digite seu e-mail:\n\n");
-					String email = leia.nextLine();
-					
-					break;
-				case 2:
-					System.out.println("Informe os dados solicitados:\n\n");
+			case 1:
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "Digite o código do produto\n\n");
+				int codigo = leia.nextInt();
 
-					break;
-				case 3:
-					System.out.println("Informe o seu endereço de e-mail abaixo.\nSe o cadastro for localizado, você receberá em seu e-mail um link\npara criar uma nova senha.\n\n");
-					System.out.println("Digite seu e-mail:\n\n");
-					String frgtemail = leia.nextLine();
+				keyPress();
+				break;
 
-					break;
-				case 4:
-					System.out.println("Lista de pedidos atualizada:\n\n");
+			case 2:
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "Informe os dados solicitados\n\n");
 
-					break;
-				case 5:
-					System.out.println("Carrinho\n\n");
+				keyPress();
+				break;
+			
+			case 3:
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "Lista de produtos\n\n");
+				produtos.listarProdutos();
+				keyPress();
+				break;
+			
+			case 4:
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "Deletar produto do sistema\n\n");
 
-					break;
-				case 6:
-					System.out.println("Sua lista de desejos\n\n");
+				keyPress();
+				break;
+			
+			case 5:
+				System.out.println(Cores.TEXT_PURPLE_BOLD + "\"Agradecemos o seu acesso!\n\n\"");
 
-					break;
-				case 7:
-					System.out.println("Agradecemos o seu acesso, nos vemos em breve!\n\n");
+				keyPress();
+				break;
+			
+			default:
+				System.out.println(Cores.TEXT_BLUE_BOLD + "\nDesculpe, parece que essa não é uma opção válida!\n");
 
-					break;
-				default:
-					System.out.println("\nDesculpe, parece que essa não é uma opção válida!\n");
-					break;
+				keyPress();
+				break;
 			}
 		}
 	}
-    
+
 	public static void sobre() {
-		System.out.println("\n                                                     ");
-		System.out.println("Projeto Desenvolvido por: Anna Vighi");
-		System.out.println("Generation Brasil - vighianna@gmail.com");
-		System.out.println("https://github.com/annavighi/");
-		System.out.println("                                                     ");
+		System.out.println(Cores.TEXT_PURPLE + "\n                                                     ");
+		System.out.println(Cores.TEXT_PURPLE + "Projeto Desenvolvido por: Anna Vighi");
+		System.out.println(Cores.TEXT_PURPLE + "Generation Brasil - vighianna@gmail.com");
+		System.out.println(Cores.TEXT_PURPLE + "https://github.com/annavighi/");
+		System.out.println(Cores.TEXT_PURPLE + "                                                     ");
+	}
+
+	public static void keyPress() {
+
+		try {
+
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+			System.in.read();
+
+		} catch (IOException e) {
+
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+
+		}
 	}
 }
